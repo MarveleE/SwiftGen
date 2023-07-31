@@ -1,0 +1,21 @@
+
+import SwiftUI
+
+struct TemplateContentView: View {
+
+    var body: some View {
+        VStack {
+            ScrollView {
+
+            }
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+        .ignoresSafeArea(.all)
+    }
+}
+
+struct Template_Previews: PreviewProvider {
+    static var previews: some View {
+        TemplateContentView()
+    }
+}
