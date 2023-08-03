@@ -3,6 +3,12 @@ import SwiftUI
 
 struct TemplateContentView: View {
 
+    @ObservedObject var viewModel: TemplateViewModel
+    
+    init(viewModel: TemplateViewModel) {
+        self.viewModel = viewModel
+    }
+    
     var body: some View {
         VStack {
             ScrollView {
@@ -16,6 +22,8 @@ struct TemplateContentView: View {
 
 struct Template_Previews: PreviewProvider {
     static var previews: some View {
-        TemplateContentView()
+        return UIViewControllerPreview {
+            return TemplateViewController()
+        }.ignoresSafeArea()
     }
 }

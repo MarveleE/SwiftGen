@@ -3,10 +3,16 @@ import UIKit
 import SwiftUI
 import SnapKit
 
-class TemplateViewController: UIViewController {
+class TemplateViewController: IdahViewController {
+
+    var content: UIView
+
+    let viewModel: TemplateViewModel = TemplateViewModel()
 
     override init() {
+        self.content = UIHostingController(rootView: TemplateContentView(viewModel: viewModel)).view
         super.init()
+        self.title = ""
     }
 
     required init?(coder: NSCoder) {
@@ -15,6 +21,14 @@ class TemplateViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        layout()
+    }
+
+    private func layout() {
+        view.addSubview(content)
+        content.snp.makeConstraints() {make in
+            make.edges.equalToSuperview()
+        }
     }
 }
 

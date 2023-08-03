@@ -89,6 +89,8 @@ def create_folders(feature: str):
         with open(root, "w+") as f:
             if root.endswith("ViewController.swift"):
                 f.write(TemplateCenter.create_viewcontroller())
+            elif root.endswith("ContentView.swift"):
+                f.write(TemplateCenter.create_swiftui())
             elif root.endswith("ViewModel.swift"):
                 f.write(TemplateCenter.create_viewmodel())
             elif root.endswith(f"{feature}.swift"):
@@ -104,6 +106,7 @@ def create_folders(feature: str):
 
 def paths(feature: str):
     return [
+        f"/{feature}/Presentaion/View/{feature}ContentView.swift",
         f"/{feature}/Presentaion/View/{feature}ViewController.swift",
         f"/{feature}/Presentaion/ViewModel/{feature}ViewModel.swift",
         f"/{feature}/Data/Entities/{feature}.swift",
